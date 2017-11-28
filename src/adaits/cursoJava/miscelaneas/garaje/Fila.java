@@ -41,8 +41,9 @@ public class Fila {
     public String toString() {
         String output ="";
         for (int i = 0; i < plazas.length; i++) {
-            output += plazas[i] + " ";
+            output += "|" + plazas[i];
         }
+        output += "|";
         return output;
     }
 }

@@ -29,7 +29,6 @@ public class Planta {
     }
 
     public Fila buscaFilaLibre(){
-        Ubicacion ub;
         for (int i = 0; i < filas.length; i++) {
             if (filas[i].buscaUbicacion() != null){
                 return filas[i];
@@ -41,11 +40,19 @@ public class Planta {
     @Override
     public String toString() {
         String output = "";
+        for (int i = 0; i < Garaje.COLUMNAS; i++) {
+            output += "__";
+        }
+        output += "_\n";
         for (int i = 0; i < filas.length; i++) {
             output += filas[i] + "\n";
             if (i%2 == 0)
                 output += "\n";
         }
+        for (int i = 0; i < Garaje.COLUMNAS; i++) {
+            output += "¯¯";
+        }
+        output += "¯\n";
         return output;
     }
 }

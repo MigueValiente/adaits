@@ -1,5 +1,7 @@
 package adaits.cursoJava.miscelaneas.garaje;
 
+import adaits.cursoJava.Persona.Usuario;
+
 public class Garaje {
     private Planta[] aparcamiento;
     public static   int PLANTAS;
@@ -30,14 +32,22 @@ public class Garaje {
     }
 
     public void asignaPlazaLibre(){
-        Planta pLibre = buscarPlazaLibre();
+        Planta pLibre = buscarPlantaLibre();
         Fila fLibre = pLibre.buscaFilaLibre();
         Ubicacion libre = fLibre.buscaUbicacion();
         libre.ocupar();
     }
 
+    public Ubicacion buscarAparcamientoLibre(){
+        return buscarPlantaLibre().buscaFilaLibre().buscaUbicacion();
+    }
+
     public void asignaPlaza(int planta, int fila, int columna){
         aparcamiento[planta].getFilas()[fila].getPlazas()[columna].ocupar();
+    }
+
+    public void reservaPlaza(Usuario u, int planta, int fila, int columna){
+        aparcamiento[planta].getFilas()[fila].getPlazas()[columna].alquilar(u);
     }
 
     public boolean isFullGaraje(){
@@ -48,12 +58,16 @@ public class Garaje {
         return true;
     }
 
-    public Planta buscarPlazaLibre(){
+    public Planta buscarPlantaLibre(){
         for (int i = 0; i < aparcamiento.length; i++) {
             if (aparcamiento[i].buscaFilaLibre() != null)
                 return aparcamiento[i];
         }
         return null;
+    }
+
+    public void listUsers(){
+
     }
 
     @Override
