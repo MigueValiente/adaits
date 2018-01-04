@@ -1,66 +1,103 @@
 package adaits.cursoJava.aeroclub;
 
-import adaits.cursoJava.Persona.Usuario;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+/**
+ * Clase que modela un aeroclub.<br>
+ * Tiene como atributos:<br>
+ * private final String name. Nombre del aeroclub<br>
+ * private final ArrayList aeronaves. Lista de aeronaves del aeroclub<br>
+ * private final ArrayList socios. Lista de Pilotos socios del aeroclub<br>
+ * private final ArrayList reservas. Lista de reservas hechas en el aeroclub
+ */
 public class Aeroclub {
-    private String name;
-    private Aeronave [] aeronaves = new Aeronave[10];
-    private static int iAero = 0;
-    private Usuario[] socios = new Usuario[50];
-    private static int iSocio = 0;
-    private Reserva [] reservas = new Reserva[100];
-    private static int iRes = 0;
+    private final String name;
+    private final ArrayList<Aeronave> aeronaves = new ArrayList<>();
+    private final ArrayList<Piloto> socios = new ArrayList<>();
+    private final ArrayList<Reserva> reservas = new ArrayList<>();
 
+    /**
+     * Constructor parametrizado que recibe el nombre del aeroclub
+     * @param n String (Cadena) con el nombre del aeroclub
+     */
     public Aeroclub(String n) {
         name = n;
     }
 
-    public void addUser(Usuario u){
-        socios[iSocio] = u;
-        iSocio++;
+    /**
+     * Método para agregar un usuario (Piloto o socio) a la lista de pilotos del aeroclub
+     * @param u Usuario de tipo Piloto
+     */
+    public void addUser(Piloto u){
+        socios.add(u);
     }
+
+    /**
+     * Método que agrega una aeronave a la lista de aeronaves del aeroclub
+     * @param a aeronave a agregar de la clase abstracta Aeronave
+     */
     public void addAeronave(Aeronave a){
-        aeronaves[iAero] = a;
-        iAero++;
+        aeronaves.add(a);
     }
 
-    public void reservar(Usuario u, Aeronave av, GregorianCalendar ini, GregorianCalendar fin){
-        reservas[iRes] = new Reserva(u,av,ini,fin);
-        iRes++;
+    /**
+     * Método que devuelve la lista de aeronaves del club
+     * @return ArrayList de Aeronaves
+     */
+    public ArrayList<Aeronave> getAeronaves() {
+        return aeronaves;
     }
+
+    /**
+     * Métod que permite reservar una aeronave por parte de un piloto. Copruba que el piloto esté habilitado para volar esa aeronave
+     * @param u Piloto que pretende reservar
+     * @param av Aeronave a reservar
+     * @param ini Fecha-Hora de inicio de la reserva
+     * @param fin Fecha-Hora de fin de la reserva
+     */
+    public void reservar(Piloto u, Aeronave av, GregorianCalendar ini, GregorianCalendar fin){
+        if (av.isReservado(ini,fin) || !av.isOperativo()){
+            System.out.println("Esta aeronave no está disponible para ser reservada");
+            return;
+        }
+        if (u.isHabilitado(av.getModelo())) {
+            reservas.add(new Reserva(u, av, ini, fin));
+            av.setReserva(reservas.get(reservas.size()-1));
+        }else{
+            System.out.println(u + " no está habilitado para el modelo de aeronave " + av.getModelo().getMarca() + " " +
+                    av.getModelo());
+        }
+    }
+
+    /**
+     * Método que lista los socios del aeroclub
+     */
     public void listSocios(){
-        for (int i = 0; i < socios.length; i++) {
-            if (socios[i] == null) break;
-            System.out.println(socios[i].getName() + " " + socios[i].getApellido1() + " " + socios[i].getApellido2());
+        for (Piloto p: socios) {
+            if (p == null) break;
+            System.out.println(p);
         }
     }
 
+    /**
+     * Método que lista las aeronaves del aeroclub
+     */
     public void listAeronaves(){
-        for (int i = 0; i < aeronaves.length; i++) {
-            if (aeronaves[i] == null) break;
-            System.out.println(aeronaves[i].getMatricula() + " " + aeronaves[i].getModelo().getMarca().getMarca() + " " + aeronaves[i].getModelo().getModelo());
+        for (Aeronave a: aeronaves) {
+            if (a == null) break;
+            System.out.println(a);
         }
     }
 
+    /**
+     * Método que lista las reservas del aeroclub
+     */
     public void listReservas(){
-        for (int i = 0; i < reservas.length; i++) {
-            if (reservas[i] == null) break;
-            int iDIA = reservas[i].getFhInicio().get(Calendar.DATE);
-            int iMES = reservas[i].getFhInicio().get(Calendar.MONTH);
-            int iYEAR = reservas[i].getFhInicio().get(Calendar.YEAR);
-            int iHORA = reservas[i].getFhInicio().get(Calendar.HOUR_OF_DAY);
-            int iMIN = reservas[i].getFhInicio().get(Calendar.MINUTE);
-            int fDIA = reservas[i].getFhFin().get(Calendar.DATE);
-            int fMES = reservas[i].getFhFin().get(Calendar.MONTH);
-            int fYEAR = reservas[i].getFhFin().get(Calendar.YEAR);
-            int fHORA = reservas[i].getFhFin().get(Calendar.HOUR_OF_DAY);
-            int fMIN = reservas[i].getFhFin().get(Calendar.MINUTE);
-            String fechaIni = iDIA + "/" + iMES + "/" + iYEAR + "-->" + iHORA + ":" + iMIN;
-            String fechaFin = fDIA + "/" + fMES + "/" + fYEAR + "-->" + fHORA + ":" + fMIN;
-            System.out.println(reservas[i].getSocio().getNombreYApellidos() + " " + reservas[i].getAeronave()+ " " + fechaIni + " " + fechaFin);
+        for (Reserva r:reservas) {
+            if (r == null) break;
+            System.out.println(r);
         }
     }
 

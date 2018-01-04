@@ -1,24 +1,25 @@
 package adaits.cursoJava.aeroclub;
 
-public class Marca {
-    final private int CESSNA = 0;
-    final private int ROBINSON = 1;
-    final private int PIPPER = 2;
-
+/**
+ * Clase abstracta que modela la Marca de una aeronave
+ */
+public abstract class Marca {
     private String marca;
-    private TipoAeronave tipo;
 
-    public Marca(String marca, TipoAeronave tipo) {
+    /**
+     * Constructor parametrizado que admite la cadena del nombre de la Marca
+     * @param marca String
+     */
+    public Marca(String marca) {
         this.marca = marca;
-        this.tipo = tipo;
     }
 
+    /**
+     * Getter de la Marca
+      * @return String
+     */
     public String getMarca() {
         return marca;
-    }
-
-    public TipoAeronave getTipo() {
-        return tipo;
     }
 
     @Override

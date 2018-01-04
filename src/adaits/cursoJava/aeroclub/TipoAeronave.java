@@ -5,7 +5,7 @@ public class TipoAeronave {
     final private int HELICOPTERO = 1;
     final private int DRON = 2;
 
-    private String tipo;
+    private final String tipo;
 
     public TipoAeronave(String tipo) {
         this.tipo = tipo;
