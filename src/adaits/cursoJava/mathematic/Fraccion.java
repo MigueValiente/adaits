@@ -60,7 +60,7 @@ public class Fraccion {
         return this.sumar(f.opuesto());
     }
 
-    public Fraccion opuesto(){
+    private Fraccion opuesto(){
         Fraccion aux = new Fraccion();
         aux.num = -this.num;
         aux.den = this.den;

@@ -8,7 +8,7 @@ public class Zona {
     private int nZona;
     private int extremos;
     private double precio;
-    private double descuento;
+    private final double descuento;
 
     private int shift;
 

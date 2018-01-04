@@ -3,7 +3,7 @@ package adaits.cursoJava;
 
 import adaits.cursoJava.mathematic.*;
 
-public class MainPolinomio {
+class MainPolinomio {
     public static void main(String[] args) {
         int [] enteros = {0,4,-3,2};
         int [] enteros2 = {-3,0,2};

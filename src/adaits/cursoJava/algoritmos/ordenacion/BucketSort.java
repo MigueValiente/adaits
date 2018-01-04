@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class BucketSort {
-    public static int[] bucketSort(int[] arr) {
+class BucketSort {
+    private static int[] bucketSort(int[] arr) {
         int i, j;
         int[] count = new int[arr.length];
         Arrays.fill(count, 0);

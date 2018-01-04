@@ -2,7 +2,7 @@ package adaits.cursoJava.geometria;
 
 public class Poligono {
     // Atributos
-    private int lados;
+    private final int lados;
     private Punto[] puntos;
 
     // Constructores

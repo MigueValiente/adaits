@@ -22,7 +22,7 @@ public class Linea {
         this.p1 = p1;
     }
 
-    public void setP2(Punto p2) {
+    private void setP2(Punto p2) {
         this.p2 = p2;
     }
 

@@ -2,7 +2,7 @@ package adaits.cursoJava.miscelaneas.teatro;
 
 import javax.swing.plaf.PanelUI;
 
-public class Butaca {
+class Butaca {
     final public static int LIBRE = 0;
     final public static int OCUPADA = 1;
     final public static int RESERVADA = 2;

@@ -3,7 +3,7 @@ package adaits.cursoJava;
 
 import adaits.cursoJava.mathematic.Fraccion;
 
-public class PruebaFraccion {
+class PruebaFraccion {
     public static void main(String[] args) {
         // Se crean 4 fracciones
         Fraccion f1 = new Fraccion(-1, -4); // Fracción 1/4

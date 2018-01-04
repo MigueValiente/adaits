@@ -1,13 +1,13 @@
 package adaits.cursoJava.mathematic;
 
 public class PolinomioF {
-    private Fraccion polinomio[];
+    private final Fraccion[] polinomio;
 
     /**
      * Constructor sin parámetros.
      * Crea un polinomio de grado 1 con un solo coeficiente 0x^0
      */
-    public PolinomioF(){
+    private PolinomioF(){
         polinomio = new Fraccion[1];
         polinomio[0] = new Fraccion(0);
     }
@@ -39,7 +39,7 @@ public class PolinomioF {
      * @param c Entero
      */
 
-    public PolinomioF(int c){
+    private PolinomioF(int c){
         polinomio = new Fraccion[c];
         for (int i = 0;i < polinomio.length;i++) {
             polinomio[i] = new Fraccion(0);
@@ -52,7 +52,7 @@ public class PolinomioF {
      * @param inicio índice de inicio del subarray
      * @param fin índice de fin del subarray
      */
-    public PolinomioF (Fraccion[] p,int inicio,int fin){
+    private PolinomioF(Fraccion[] p, int inicio, int fin){
         polinomio = new Fraccion[fin - inicio + 1];
         for (int i = inicio,j=0;i<= fin;i++,j++) {
             polinomio[j] = p[i];
@@ -63,7 +63,7 @@ public class PolinomioF {
      * Calcula el grado de un polinomio
      * @return entero. grado del polinomio
      */
-    public int grado(){
+    private int grado(){
         return this.polinomio.length - 1;
     }
     /**
@@ -97,15 +97,14 @@ public class PolinomioF {
         }
         // eliminamos los términos con coeficiente 0 en los elementos de mayor exponente
 
-        PolinomioF salida = new PolinomioF(newP.polinomio,0,newP.grado()  - ceros);
-        return salida;
+        return new PolinomioF(newP.polinomio,0,newP.grado()  - ceros);
     }
 
     /**
      * Método que calcula el polinomio con todos sus coeficientes cambiados de signo
      * @return org.adaits.mathematics.PolinomioF
      */
-    public PolinomioF opuesto (){
+    private PolinomioF opuesto(){
         return this.producto(-1);
     }
 
@@ -144,7 +143,7 @@ public class PolinomioF {
      * @return org.adaits.mathematics.PolinomioF producto
      */
 
-    public PolinomioF producto(Fraccion e){
+    private PolinomioF producto(Fraccion e){
         PolinomioF p = new PolinomioF();
         p.polinomio[0] = e;
         return this.producto(p);

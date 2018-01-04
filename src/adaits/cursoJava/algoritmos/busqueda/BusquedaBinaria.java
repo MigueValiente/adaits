@@ -2,7 +2,7 @@ package adaits.cursoJava.algoritmos.busqueda;
 
 import java.util.Scanner;
 
-public class BusquedaBinaria {
+class BusquedaBinaria {
     public static void main(String[] args) {
         final int TAM;
         int min;

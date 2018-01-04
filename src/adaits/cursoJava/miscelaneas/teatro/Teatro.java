@@ -17,6 +17,9 @@ public class Teatro {
         PASILLO = 2;
     }
 
+    private int nZonas(){
+        return zonas.length;
+    }
     public void ocupar (Zona z,int f, int b){
         int nZ = z.getnZona();
         if (nZ < 0 || nZ >= zonas.length)
@@ -91,6 +94,17 @@ public class Teatro {
                 max = Teatro.zonas[i].getBUTACAS();
         }
         return max;
+    }
+
+    public void populateRandom(){
+        int percent = 30;
+        for (int i = 0; i < nZonas(); i++) {
+            for (int j = 0; j < zonas[i].getFILAS()*zonas[i].getBUTACAS()*percent/100; j++) {
+                int f = (int) (Math.random() * zonas[i].getFILAS());
+                int b = (int) (Math.random() * zonas[i].getBUTACAS());
+                ocupar(zonas[i],f,b);
+            }
+        }
     }
 
     @Override

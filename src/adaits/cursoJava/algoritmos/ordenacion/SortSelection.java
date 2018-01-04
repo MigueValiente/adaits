@@ -1,6 +1,6 @@
 package adaits.cursoJava.algoritmos.ordenacion;
 
-public class SortSelection {
+class SortSelection {
     public static void main(String[] args) {
         //int array[] = {12,54,32,25,86,9,5,2,55,44,77,69,23,68,7,15};
         int array[] = populate(10000);
@@ -17,13 +17,13 @@ public class SortSelection {
 
     }
 
-    static void swap (int[] array,int a, int b){
+    private static void swap(int[] array, int a, int b){
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;
 
     }
-    static int buscaMin(int array[], int i){
+    private static int buscaMin(int array[], int i){
         int minIndex=i;
         for (int j = i;j < array.length;j++){
             if (array[j] < array[minIndex]){
@@ -33,7 +33,7 @@ public class SortSelection {
         return minIndex;
     }
 
-    static int[] populate(int n){
+    private static int[] populate(int n){
         int a[] = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = (int) (Math.random()*n + 1);

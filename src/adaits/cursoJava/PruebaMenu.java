@@ -1,10 +1,18 @@
 package adaits.cursoJava;
 
-import adaits.cursoJava.menu.ItemMenu;
-import adaits.cursoJava.menu.Menu;
+import adaits.cursoJava.mvc.menu.ItemMenu;
+import adaits.cursoJava.mvc.menu.Menu;
+import adaits.cursoJava.mvc.menu.EventSelectOption;
+import adaits.cursoJava.mvc.menu.SelectOptionListener;
 
-public class PruebaMenu {
-    public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+class PruebaMenu {
+
+    public static void main(String[] args) throws NoSuchMethodException {
         final int OP1 = 1;
         final int OP2 = 2;
         final int OP3 = 3;
@@ -14,7 +22,8 @@ public class PruebaMenu {
         ItemMenu op41 = new ItemMenu("Opción 41",41);
         ItemMenu op42 = new ItemMenu("Opción 42",42);
         ItemMenu op43 = new ItemMenu("Volver",43);
-        ItemMenu[] opciones4 = {op41,op42,op43};
+        ItemMenu a[] = {op41,op42,op43};
+        ArrayList<ItemMenu> opciones4 = new ArrayList<>(Arrays.asList(a));
 
         Menu m4 = new Menu("Submenú M4",opciones4);
 
@@ -25,8 +34,13 @@ public class PruebaMenu {
         ItemMenu op5 = new ItemMenu("Salir",OP5);
 
         ItemMenu[] opciones = {op1,op2,op3,op4,op5};
-        Menu m = new Menu("Principal",opciones);
+        ArrayList<ItemMenu> opciones5 = new ArrayList<>(Arrays.asList(opciones));
+
+        Menu m = new Menu("Principal",opciones5);
 
         m.exec();
+
     }
+
+
 }

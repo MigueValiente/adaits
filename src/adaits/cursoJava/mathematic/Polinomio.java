@@ -1,13 +1,13 @@
 package adaits.cursoJava.mathematic;
 
 public class Polinomio {
-    private int polinomio[];
+    private final int[] polinomio;
 
     /**
      * Constructor sin parámetros.
      * Crea un polinomio de grado 1 con un solo coeficiente 0x^0
      */
-    public Polinomio(){
+    private Polinomio(){
         polinomio = new int[1];
         polinomio[0] = 0;
     }
@@ -30,7 +30,7 @@ public class Polinomio {
      * @param c Entero
      */
 
-    public Polinomio(int c){
+    private Polinomio(int c){
         polinomio = new int[c];
     }
 
@@ -49,7 +49,7 @@ public class Polinomio {
      * @param p org.adaits.mathematics.PolinomioF
      * @return org.adaits.mathematics.PolinomioF suma
      */
-    public Polinomio sumar (Polinomio p){
+    private Polinomio sumar(Polinomio p){
         Polinomio newP = new Polinomio(max(this.polinomio.length,p.polinomio.length));
         for (int i=0;i<newP.polinomio.length;i++){
             int a = 0;
@@ -65,7 +65,7 @@ public class Polinomio {
      * Método que calcula el polinomio con todos sus coeficientes cambiados de signo
      * @return org.adaits.mathematics.PolinomioF
      */
-    public Polinomio opuesto (){
+    private Polinomio opuesto(){
         return this.producto(-1);
     }
 
@@ -83,7 +83,7 @@ public class Polinomio {
      * @param p org.adaits.mathematics.PolinomioF
      * @return org.adaits.mathematics.PolinomioF producto
      */
-    public Polinomio producto(Polinomio p){
+    private Polinomio producto(Polinomio p){
         Polinomio newP = new Polinomio(this.polinomio.length + p.polinomio.length -1);
         for (int i=0;i < this.polinomio.length;i++){
             for (int j=0;j < p.polinomio.length;j++){
@@ -98,7 +98,7 @@ public class Polinomio {
      * @param e Entero
      * @return org.adaits.mathematics.PolinomioF producto
      */
-    public Polinomio producto(int e){
+    private Polinomio producto(int e){
         Polinomio p = new Polinomio();
         p.polinomio[0] = e;
         return this.producto(p);

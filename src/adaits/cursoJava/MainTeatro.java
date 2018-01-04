@@ -3,7 +3,7 @@ package adaits.cursoJava;
 import adaits.cursoJava.miscelaneas.teatro.Teatro;
 import adaits.cursoJava.miscelaneas.teatro.Zona;
 
-public class MainTeatro {
+class MainTeatro {
     public static void main(String[] args) {
         Zona vip = new Zona(3,20);
         Zona patio = new Zona(10,30);
@@ -30,12 +30,14 @@ public class MainTeatro {
         t.liberar(40);
         t.ocupar(3019);
 
+        t.populateRandom();
+
         double recaudacion = t.caja();
         System.out.println(t);
 
         System.out.println("La recaudación hasta ahora es " + recaudacion);
 
-        t.listarTeatro();
+        //t.listarTeatro();
 
     }
 }

@@ -2,7 +2,7 @@ package adaits.cursoJava.algoritmos.otros;
 
 import java.util.Scanner;
 
-public class Billetes {
+class Billetes {
     public static void main(String[] args) {
         double cantidad;
         final double B50,B20,B10,B5,M2,M1,M05,M02,M01,M005,M002,M001;

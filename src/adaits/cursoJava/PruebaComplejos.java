@@ -3,7 +3,7 @@ package adaits.cursoJava;
 
 import adaits.cursoJava.mathematic.Complejo;
 
-public class PruebaComplejos {
+class PruebaComplejos {
     public static void main(String[] args) {
         // declaración de números complejos
         Complejo c1 = new Complejo(0, 1);

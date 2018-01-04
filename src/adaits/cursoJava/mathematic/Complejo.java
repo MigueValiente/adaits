@@ -70,7 +70,7 @@ public class Complejo {
     }
 
     // 1/(a,b)
-    public Complejo inverso(){
+    private Complejo inverso(){
         Complejo c = new Complejo();
         c.real = real / (real * real + imag * imag);
         c.imag = - imag / (real * real + imag * imag);
@@ -130,9 +130,6 @@ public class Complejo {
         if (this.real != other.real) {
             return false;
         }
-        if (this.imag != other.imag) {
-            return false;
-        }
-        return true;
+        return !(this.imag != other.imag);
     }
 } //Fin de la Clase org.adaits.mathematics.Complejo Java

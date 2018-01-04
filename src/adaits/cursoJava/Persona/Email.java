@@ -11,7 +11,7 @@ public class Email {
             System.out.println("El email no está bien formado");
     }
 
-    public boolean isEmailOk(String txt){
+    private boolean isEmailOk(String txt){
         int state = 0;
         int c = 0;
         for (int i = 0; i < txt.length(); i++) {
@@ -79,8 +79,7 @@ public class Email {
                     break;
             }
         }
-        if (c > 1 && state == 3) return true;
-        else return false;
+        return c > 1 && state == 3;
     }
 
     public void setEmail(String txt) {

@@ -2,7 +2,7 @@ package adaits.cursoJava;
 
 import adaits.cursoJava.geometria.*;
 
-public class Geometria {
+class Geometria {
     public static void main(String[] args){
         /*  Podemos hacer  final los objetos (final Punto p1) en el entendimiento de un objeto final no puede ser
             reasignado sin que de un error. Sin embargo el objeto sí puede cambiar sus atributos p1.setX(2);
