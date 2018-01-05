@@ -15,7 +15,7 @@ public abstract class Aeronave {
     private final String matricula;
     private final Modelo modelo;
     private int estado = OPERATIVO;
-    private ArrayList<Reserva> reservas;
+    private ArrayList<Reserva> reservas = new ArrayList<>();
     private ArrayList<Vuelo> diarioDeABordo;
 
 
@@ -77,8 +77,12 @@ public abstract class Aeronave {
      */
     boolean isReservado(Calendar fechaIni, Calendar fechaFin) {
         for (Reserva r: reservas){
-            if ((fechaIni.after(r.getFhInicio()) && fechaIni.before(r.getFhFin())) || (fechaFin.after(r.getFhInicio()) && fechaFin.before(r.getFhFin())) )
-                return  true;
+            if (fechaIni.after(r.getFhInicio()) && fechaIni.before(r.getFhFin()))
+                return true;
+            if (fechaFin.after(r.getFhInicio()) && fechaFin.before(r.getFhFin()))
+                return true;
+            if (fechaIni.before(r.getFhInicio()) && fechaFin.after(r.getFhFin()))
+                return true;
         }
         return false;
     }

@@ -9,7 +9,7 @@ public class Helicoptero extends Aeronave {
      * @param matricula Matrícula del helicóptero
      * @param modelo Modelo del helicóptero
      */
-    public Helicoptero(String matricula, Modelo modelo) {
+    public Helicoptero(String matricula, ModeloHeli modelo) {
             super(matricula, modelo);
     }
 }

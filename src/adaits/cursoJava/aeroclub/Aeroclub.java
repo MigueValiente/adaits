@@ -51,13 +51,18 @@ public class Aeroclub {
     }
 
     /**
-     * Métod que permite reservar una aeronave por parte de un piloto. Copruba que el piloto esté habilitado para volar esa aeronave
+     * Métod que permite reservar una aeronave por parte de un piloto. Coprueba que el piloto esté habilitado para volar
+     * esa aeronave
      * @param u Piloto que pretende reservar
      * @param av Aeronave a reservar
      * @param ini Fecha-Hora de inicio de la reserva
      * @param fin Fecha-Hora de fin de la reserva
      */
     public void reservar(Piloto u, Aeronave av, GregorianCalendar ini, GregorianCalendar fin){
+        if (ini.after(fin)){
+            System.out.println("La fecha de fin de la reserva debe ser porterior a la de inicio");
+            return;
+        }
         if (av.isReservado(ini,fin) || !av.isOperativo()){
             System.out.println("Esta aeronave no está disponible para ser reservada");
             return;

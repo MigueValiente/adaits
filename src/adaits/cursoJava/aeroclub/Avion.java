@@ -9,7 +9,7 @@ public class Avion extends Aeronave {
      * @param matricula Matrícula del avión
      * @param modelo Modelo del avión
      */
-    public Avion(String matricula, Modelo modelo) {
+    public Avion(String matricula, ModeloAvion modelo) {
         super(matricula, modelo);
     }
 }
