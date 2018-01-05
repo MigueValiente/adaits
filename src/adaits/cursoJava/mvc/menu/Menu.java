@@ -88,8 +88,9 @@ public class Menu {
         ItemMenu im = getItemMenu(option);
         if (im != null){
             int selection = im.getItemMenuOption();
-            im.getListener().onSelectOption(new EventSelectOption(this, selection));
-
+            //////// CORREGIR ESTO
+            ItemMenu.listener.get(0).onSelectOption(new EventSelectOption(this, selection));
+            //////// CORREGIR ^
         }
     }
 

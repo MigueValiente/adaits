@@ -2,14 +2,14 @@ package adaits.cursoJava.mvc.menu;
 
 import adaits.cursoJava.colegio.view.CodeColegio;
 
+import java.util.ArrayList;
 import java.util.EventObject;
 
 public class ItemMenu{
     private String label;
     Menu subMenu;
     Menu parent;
-
-    private SelectOptionListener listener;
+    public static ArrayList<SelectOptionListener> listener;
     CodeColegio code;
 
     //final Codigo code;
@@ -49,16 +49,16 @@ public class ItemMenu{
     }
 
     public ItemMenu(SelectOptionListener listener) {
-        this.listener = listener;
+        this.listener.add(listener);
     }
 
-    public void addSelectOptionListener(SelectOptionListener l) {
-        listener = l;
+    public void addSelectOptionListener(SelectOptionListener listener) {
+        this.listener.add(listener);
     }
 
-    public SelectOptionListener getListener() {
-        return listener;
-    }
+//    public SelectOptionListener getListener() {
+//        return listener;
+//    }
 
     public Menu getParent() {
         return parent;
