@@ -7,10 +7,10 @@ package adaits.cursoJava.miscelaneas.direccion;
  * tipos, se dispondrá de una abreviatura que nos sirva para cuando se desee su impresión.
  */
 public class Calle {
-    static public final int AVENIDA = 0;
-    static public final int CALLE = 1;
-    static public final int PLAZA = 2;
-    static public final int RONDA = 3;
+//    static public final int AVENIDA = 0;
+//    static public final int CALLE = 1;
+//    static public final int PLAZA = 2;
+//    static public final int RONDA = 3;
     private final TipoCalle tipo;
     private final String nombre;
 
@@ -28,14 +28,8 @@ public class Calle {
      * Devuelve el tipo de la calle en formato String y texto completo
      * @return Cadena de Texto
      */
-    public String  getTipo() {
-        switch (tipo){
-            case AVENIDA: return "Avenida";
-            case CALLE: return "Calle";
-            case PLAZA: return "Plaza";
-            case RONDA: return "Ronda";
-            default: return "Calle";
-        }
+    public TipoCalle getTipo() {
+        return tipo;
     }
 
     /**
@@ -43,13 +37,7 @@ public class Calle {
      * @return Cadena de Texto
      */
     public String  getTipoShort() {
-        switch (tipo){
-            case AVENIDA: return "Av. ";
-            case CALLE: return "C/ ";
-            case PLAZA: return "Plz. ";
-            case RONDA: return "Rnd. ";
-            default: return "C/ ";
-        }
+        return tipo.getTipoShort();
     }
 
     public String getNombre() {
