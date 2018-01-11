@@ -15,16 +15,23 @@ public class Planta {
      * va a tener y las Plazas por Calle que va a tener
      * @param g Garaje al que pertenece
      * @param n Número de Planta en el Garaje
-     * @param calles Número de Calles que tiene la Planta
-     * @param plazas Número de Plazas que tiene cada Calle
      */
-    public Planta(Garaje g, int n,int calles,int plazas) {
+    public Planta(Garaje g, int n) {
         garaje = g;
         numero = n;
-        this.calles = new Calle[calles];
-        for (int i = 0; i < calles; i++) {
-            this.calles[i] = new Calle(this,i + 1,plazas);
+        this.calles = new Calle[g.getCALLES()];
+        for (int i = 0; i < g.getCALLES(); i++) {
+            this.calles[i] = new Calle(this,i + 1);
         }
+    }
+
+    /**
+     * Getter de garaje
+     *
+     * @return garaje
+     */
+    public Garaje getGaraje() {
+        return garaje;
     }
 
     public int getNumero() {

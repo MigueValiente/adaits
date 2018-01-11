@@ -25,27 +25,27 @@ public class Teatro {
         if (nZ < 0 || nZ >= zonas.length)
             System.out.println("La zona elegida no existe");
         else
-            z.setState(f,b,Butaca.OCUPADA);
+            z.setState(f,b,State.OCUPADA);
     }
 
     public void ocupar(int butaca){
         Zona zona = zonas[butaca/1000];
-        zona.setState(butaca%1000,Butaca.OCUPADA);
+        zona.setState(butaca%1000,State.OCUPADA);
     }
 
     public void reservar(int butaca){
         Zona zona = zonas[butaca/1000];
-        zona.setState(butaca%1000,Butaca.RESERVADA);
+        zona.setState(butaca%1000,State.RESERVADA);
     }
 
     public void romper(int butaca){
         Zona zona = zonas[butaca/1000];
-        zona.setState(butaca%1000,Butaca.ROTA);
+        zona.setState(butaca%1000,State.ROTA);
     }
 
     public void liberar(int butaca){
         Zona zona = zonas[butaca/1000];
-        zona.setState(butaca%1000,Butaca.LIBRE);
+        zona.setState(butaca%1000,State.LIBRE);
     }
 
     public void reservar (Zona z,int f, int b){
@@ -53,7 +53,7 @@ public class Teatro {
         if (nZ < 0 || nZ >= zonas.length)
             System.out.println("La zona elegida no existe");
         else
-            z.setState(f,b,Butaca.RESERVADA);
+            z.setState(f,b,State.RESERVADA);
     }
 
     public void romper (Zona z,int f, int b){
@@ -61,7 +61,7 @@ public class Teatro {
         if (nZ < 0 || nZ >= zonas.length)
             System.out.println("La zona elegida no existe");
         else
-            z.setState(f,b,Butaca.ROTA);
+            z.setState(f,b,State.ROTA);
     }
 
     public void liberar (Zona z,int f, int b){
@@ -69,7 +69,7 @@ public class Teatro {
         if (nZ < 0 || nZ >= zonas.length)
             System.out.println("La zona elegida no existe");
         else
-            z.setState(f,b,Butaca.LIBRE);
+            z.setState(f,b,State.LIBRE);
     }
 
     public double caja(){

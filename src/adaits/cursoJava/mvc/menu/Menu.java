@@ -1,38 +1,29 @@
 package adaits.cursoJava.mvc.menu;
 
-import adaits.cursoJava.colegio.view.CodeColegio;
-
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Clase que modela un menú de opciones
  */
-public class Menu {
+public class Menu extends ItemMenu{
     private ArrayList<ItemMenu> opciones = new ArrayList<>();
-    private final String label;
-    private Menu parent = null;
     private static int nMenus = 0;
-//    SelectOptionListener listener;
-//    CodeColegio code;
 
 
-    public Menu(String titulo, String[] labels) {
+    public Menu(String label, String[] labels, SelectOptionListener listener) {
+        super(label,listener);
         nMenus++;
-        label = titulo;
         for (int i = 0; i < labels.length; i++) {
-            ItemMenu im = new ItemMenu(labels[i], nMenus);
+            ItemMenu im = new ItemMenu(labels[i], nMenus,listener);
             opciones.add(im);
             opciones.get(i).parent = this;
-//            code = new CodeColegio(nMenus,im);
         }
 
     }
 
-    public Menu(String label) {
-        this.label = label;
+    public Menu(String label, SelectOptionListener listener) {
+        super(label,listener);
     }
 
     /**
@@ -41,13 +32,12 @@ public class Menu {
      * @param label    Etiqueta que aparece en el título del menú
      * @param opciones Opciones del menú
      */
-    public Menu(String label, ArrayList<ItemMenu> opciones) {
+    public Menu(String label, ArrayList<ItemMenu> opciones, SelectOptionListener listener) {
+        super(label,listener);
         nMenus++;
         this.opciones = opciones;
         for (int i = 0; i < opciones.size(); i++) {
-            //this.opciones[i] = opciones[i];
             opciones.get(i).parent = this;
-            //addSelectOptionListener(code);
             if (opciones.get(i).subMenu != null) {
                 opciones.get(i).subMenu.parent = this;
             }
@@ -76,8 +66,8 @@ public class Menu {
 
     public void exec() {
         int op;
-        System.out.println(this);
         do {
+            System.out.println(this);
             op = getOption();
             triggerSelectOption(op);
         } while (op != -1);
@@ -88,15 +78,10 @@ public class Menu {
         ItemMenu im = getItemMenu(option);
         if (im != null){
             int selection = im.getItemMenuOption();
-            im.getListener().onSelectOption(new EventSelectOption(this, selection));
-
+            im.getListener().onSelectOption(new EventSelectOption(im, selection,im));
         }
     }
 
-//
-//    public void addSelectOptionListener(SelectOptionListener l) {
-//        listener = l;
-//    }
 
     private ItemMenu getItemMenu(int option){
         for (int i = 0;i < opciones.size();i++) {

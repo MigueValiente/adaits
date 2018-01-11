@@ -7,7 +7,6 @@ public class LecturaPorConsola {
     String label;
 
     public LecturaPorConsola() {
-        this.label = label;
     }
     public LecturaPorConsola(String label) {
         this.label = label;

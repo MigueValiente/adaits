@@ -91,30 +91,32 @@ public class MainColegio {
 //        System.out.println(pr.list(colegio.getTitulaciones().get(0)));
 
 
-        MenuColegio menuPrincipal = new MenuColegio("Colegio ADA-ITS");
+        MenuColegio menuPrincipal = new MenuColegio("Colegio ADA-ITS",new CodeColegio(colegio));
 
 
-        ItemMenu gestionEmpleados = new ItemMenu("Gestión de Empleados", CodeColegio.GESTION_DE_EMPLEADOS);
-        ItemMenu gestionAlumnos = new ItemMenu("Gestión de Alumnos",CodeColegio.GESTION_DE_ALUMNOS);
-        ItemMenu volver = new ItemMenu("Volver",CodeColegio.VOLVER);
+        ItemMenu gestionEmpleados = new ItemMenu("Gestión de Empleados", CodeColegio.GESTION_DE_EMPLEADOS, new CodeColegio(colegio));
+        ItemMenu gestionAlumnos = new ItemMenu("Gestión de Alumnos",CodeColegio.GESTION_DE_ALUMNOS, new CodeColegio(colegio));
+        ItemMenu volver = new ItemMenu("Volver",CodeColegio.VOLVER, new CodeColegio(colegio));
 
-        Menu menuPersonal = new MenuColegio("Gestión de Personal");
+        Menu menuPersonal = new MenuColegio("Gestión de Personal",new CodeColegio(colegio));
         menuPersonal.add(gestionEmpleados);
         menuPersonal.add(gestionAlumnos);
         menuPersonal.add(volver);
 
-        ItemMenu crearTitulacion = new ItemMenu("Crear una Titulación",CodeColegio.CREAR_TITULACION);
-        ItemMenu eliminarTitulacion = new ItemMenu("Eliminar una Titulación",CodeColegio.ELIMINAR_TITULACION);
+        ItemMenu crearTitulacion = new ItemMenu("Crear una Titulación",CodeColegio.CREAR_TITULACION, new CodeColegio(colegio));
+        ItemMenu eliminarTitulacion = new ItemMenu("Eliminar una Titulación",CodeColegio.ELIMINAR_TITULACION, new CodeColegio(colegio));
+        ItemMenu listarTitulaciones = new ItemMenu("Listar todas las Titulaciones",CodeColegio.LISTAR_TITULACION, new CodeColegio(colegio));
 
-        Menu menuGestionEdu = new MenuColegio("Gestión Educativa");
+        Menu menuGestionEdu = new MenuColegio("Gestión Educativa",new CodeColegio(colegio));
         menuGestionEdu.add(crearTitulacion);
         menuGestionEdu.add(eliminarTitulacion);
+        menuGestionEdu.add(listarTitulaciones);
         menuGestionEdu.add(volver);
 
-        ItemMenu gestioPersonal = new ItemMenu("Gestión de Personal",menuPersonal,CodeColegio.GESTION_DE_PERSONAL);
-        ItemMenu gestioEducativa = new ItemMenu("Gestión de Educativa",menuGestionEdu,CodeColegio.GESTION_EDUCATIVA);
-        ItemMenu gestioAdministracion = new ItemMenu("Gestión de Administración",CodeColegio.GESTION_DE_ADMINISTRACION);
-        ItemMenu salir = new ItemMenu("Salir",CodeColegio.SALIR);
+        ItemMenu gestioPersonal = new ItemMenu("Gestión de Personal",menuPersonal,CodeColegio.GESTION_DE_PERSONAL, new CodeColegio(colegio));
+        ItemMenu gestioEducativa = new ItemMenu("Gestión de Educativa",menuGestionEdu,CodeColegio.GESTION_EDUCATIVA, new CodeColegio(colegio));
+        ItemMenu gestioAdministracion = new ItemMenu("Gestión de Administración",CodeColegio.GESTION_DE_ADMINISTRACION, new CodeColegio(colegio));
+        ItemMenu salir = new ItemMenu("Salir",CodeColegio.SALIR, new CodeColegio(colegio));
 
         menuPrincipal.add(gestioPersonal);
         menuPrincipal.add(gestioEducativa);

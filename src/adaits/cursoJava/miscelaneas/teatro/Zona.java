@@ -31,7 +31,7 @@ public class Zona {
         this.shift = shift;
     }
 
-    public void setState (int fila,int butaca,int state){
+    public void setState (int fila,int butaca,State state){
         if (fila < 0 || fila >= FILAS)
             System.out.println("Esta zona no tiene esa fila");
         else if (butaca < 0 || butaca >= BUTACAS)
@@ -40,7 +40,7 @@ public class Zona {
             distribucion[fila][butaca].setState(state);
     }
 
-    public void setState (int numero,int state){
+    public void setState (int numero,State state){
         int fila = numero/BUTACAS;
         int butaca = numero%BUTACAS;
         setState(fila,butaca,state);
@@ -58,7 +58,7 @@ public class Zona {
         double recaudacion = 0;
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < BUTACAS; j++) {
-                if (distribucion[i][j].getState()== Butaca.OCUPADA)
+                if (distribucion[i][j].getState()== State.OCUPADA)
                     recaudacion += distribucion[i][j].getPrecio();
             }
         }

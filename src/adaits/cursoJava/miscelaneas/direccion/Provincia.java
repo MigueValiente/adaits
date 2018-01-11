@@ -12,7 +12,7 @@ public class Provincia {
     private Localidad [] localidades;
 
     /**
-     * Constructor ue recibe el código y el Nombre de la Provincia
+     * Constructor que recibe el código y el Nombre de la Provincia
      * @param codigo Entero
      * @param nombreProvincia Cadena (String)
      */
