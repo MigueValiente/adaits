@@ -48,6 +48,22 @@ public class Garaje {
     }
 
     /**
+     * Getter de PLANTAS
+     * @return PLANTAS
+     */
+    public int getPLANTAS() {
+        return PLANTAS;
+    }
+
+    /**
+     * Getter de CALLES
+     * @return CALLES
+     */
+    public int getCALLES() {
+        return CALLES;
+    }
+
+    /**
      * Getter del atributo PLAZAS
      * @return atributo PLAZAS
      */
@@ -70,7 +86,7 @@ public class Garaje {
     private void populate(){
         plantas = new Planta[PLANTAS];
         for (int i = 0; i < PLANTAS; i++) {
-            plantas[i] = new Planta(this,i + 1, CALLES, PLAZAS);
+            plantas[i] = new Planta(this,i + 1);
         }
     }
 
@@ -175,7 +191,7 @@ public class Garaje {
     public void sacarTicket(){
         if (!isFullGaraje()){
             Plaza p = asignaPlazaLibre();
-            Ticket t = new Ticket(p.getPlanta(),p.getCalle(),p);
+            Ticket t = new Ticket(p.getCalle().getPlanta(),p.getCalle(),p);
             System.out.println(t);
         }else{
             System.out.println("¡GARAJE LLENO!");

@@ -3,6 +3,9 @@ package adaits.cursoJava.miscelaneas.direccion;
 /**
  * La Clase direccion modela una dirección de correo
  * La Clase Dirección incluirá el Código postal, La Calle y el número del domicilio.
+ * @author José
+ * @version 01
+ * @see CP
  */
 public class Direccion {
     private final CP cp;
@@ -10,7 +13,7 @@ public class Direccion {
     private final int numero;
 
     /**
-     *Constructor que recibe el cúmero del Código postal, la Calle y el número del domicilio
+     *Constructor que recibe el número del Código postal, la Calle y el número del domicilio
      * @param cp Entero que representa un código postal
      * @param calle Cadena con el nombre de la Calle
      * @param numero del domicilio

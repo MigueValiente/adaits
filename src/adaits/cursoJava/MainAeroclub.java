@@ -1,6 +1,5 @@
 package adaits.cursoJava;
 
-import adaits.cursoJava.Persona.Usuario;
 import adaits.cursoJava.aeroclub.*;
 import adaits.cursoJava.miscelaneas.Fecha;
 
@@ -9,19 +8,19 @@ import java.util.GregorianCalendar;
 
 class MainAeroclub {
     public static void main(String[] args) {
-        Marca cessna = new MarcaAvion("Cessna");
-        Marca piper = new MarcaAvion("Pipper");
-        Marca robinson = new MarcaHeli("Robinson");
+        MarcaAvion cessna = new MarcaAvion("Cessna");
+        MarcaAvion piper = new MarcaAvion("Pipper");
+        MarcaHeli robinson = new MarcaHeli("Robinson");
 
-        Modelo c152 = new ModeloAvion((MarcaAvion) cessna,"152");
-        Modelo c172 = new ModeloAvion((MarcaAvion) cessna,"172");
-        Modelo c172rg = new ModeloAvion((MarcaAvion) cessna,"172RG");
-        Modelo r44 = new ModeloHeli((MarcaHeli) robinson,"44");
-        Modelo pa28 = new ModeloAvion((MarcaAvion) piper,"PA 28");
+        ModeloAvion c152 = new ModeloAvion( cessna,"152");
+        ModeloAvion c172 = new ModeloAvion(cessna,"172");
+        ModeloAvion c172rg = new ModeloAvion( cessna,"172RG");
+        ModeloHeli r44 = new ModeloHeli( robinson,"44");
+        ModeloAvion pa28 = new ModeloAvion( piper,"PA 28");
 
         Aeronave ecjbg = new Avion("EC-JBG",c152);
         Aeronave ecqwe = new Avion("EC-QWE",c172);
-        Aeronave ecpdf = new Helicoptero("EC-PDF",r44);
+        Aeronave ecpdf = new Helicoptero("EC-PDF", r44);
         Aeronave ecyth = new Avion("EC-YTH",pa28);
 
         Piloto pepe = new Socio("12345678G","Pepe","Pérez","Pi","qwerty","asdfg");
@@ -42,8 +41,14 @@ class MainAeroclub {
 
         Fecha horaIni = new Fecha(05,10,1961,15,00);
         Fecha horaFin = new Fecha(05,10,1961,17,30);
+        Fecha horaIni2 = new Fecha(05,10,1961,16,00);
+        Fecha horaFin2 = new Fecha(05,10,1961,17,20);
+        Fecha horaIni3 = new Fecha(05,10,1961,15,00);
+        Fecha horaFin3 = new Fecha(05,10,1961,10,30);
         pollo.reservar(pepe,ecjbg,horaIni,horaFin);
-        pollo.reservar(pepe,ecpdf,new GregorianCalendar(2017,11,29,12,30),new GregorianCalendar(2017,11,29,11,0));
+        pollo.reservar(pepe,ecjbg,horaIni2,horaFin2);
+        pollo.reservar(pepe,ecjbg,horaIni3,horaFin3);
+        pollo.reservar(pepe,ecpdf,new GregorianCalendar(2017,11,29,12,30),new GregorianCalendar(2017,11,29,13,0));
 
         System.out.println(pollo);
         pollo.listReservas();

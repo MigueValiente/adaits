@@ -7,6 +7,8 @@ import adaits.cursoJava.mvc.CRUDable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+
+
 public class Personas implements CRUDable {
     private final ArrayList<Persona> personas;
 
@@ -33,6 +35,11 @@ public class Personas implements CRUDable {
         return null;
     }
 
+    /**
+     *
+     * @param persona
+     * @return
+     */
     public int delete(Object persona) {
         int i = getIndex(persona);
         if (i != -1) {

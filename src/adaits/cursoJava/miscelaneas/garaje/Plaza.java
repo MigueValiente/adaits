@@ -14,18 +14,15 @@ import adaits.cursoJava.Persona.*;
 public class Plaza {
     private final int numero;
     private final Calle calle;
-    private final Planta planta;
     private boolean ocupado;
     private Usuario propietario;
 
     /**
      * Constructor que hrecibe el número de Plaza la Planta y la Calle en la que se ubica
-     * @param p Planta
      * @param c Calle
      * @param n Número de la Plaza
      */
-    public Plaza(Planta p, Calle c, int n){
-        planta = p;
+    public Plaza(Calle c, int n){
         calle = c;
         numero = n + 1;
         ocupado = false;
@@ -36,9 +33,6 @@ public class Plaza {
         return calle;
     }
 
-    public Planta getPlanta() {
-        return planta;
-    }
 
     public int getNumero() {
         return numero;

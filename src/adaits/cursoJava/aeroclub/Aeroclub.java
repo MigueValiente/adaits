@@ -51,7 +51,7 @@ public class Aeroclub {
     }
 
     /**
-     * Métod que permite reservar una aeronave por parte de un piloto. Coprueba que el piloto esté habilitado para volar
+     * Métod que permite reservar una aeronave por parte de un piloto. Comprueba que el piloto esté habilitado para volar
      * esa aeronave
      * @param u Piloto que pretende reservar
      * @param av Aeronave a reservar

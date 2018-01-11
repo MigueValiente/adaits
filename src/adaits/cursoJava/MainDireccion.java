@@ -15,6 +15,8 @@
 package adaits.cursoJava;
 
 import adaits.cursoJava.miscelaneas.direccion.*;
+import adaits.cursoJava.miscelaneas.direccion.factoryTipoDeVia.Tipo;
+import adaits.cursoJava.miscelaneas.direccion.factoryTipoDeVia.TipoFactory;
 
 class MainDireccion {
     public static void main(String[] args) {
@@ -24,6 +26,10 @@ class MainDireccion {
 
         TipoCalle av = TipoCalle.AVENIDA;
         TipoCalle c = TipoCalle.CALLE;
+
+        // Empleando la factory de tipo de calle
+        TipoFactory factory = new TipoFactory();
+        Tipo r = factory.getTipo(TipoFactory.AVENIDA);
 
         // Creamos una Provincia
         Provincia sevillaP = new Provincia(41,"Sevilla");

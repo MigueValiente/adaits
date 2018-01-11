@@ -3,7 +3,7 @@ package adaits.cursoJava.miscelaneas.direccion;
 /**
  * La clase CP modela un Código Postal.
  * El código (numero) es un entero de tres cifras que junto a las dos cifras del código de la Provincia nos proporciona
- * el Código postal correspondiente
+ * el Código postal correspondient
  * Del Código Postal, que representa un área que cubre total o parcialmente una Localidad, se deberá conocer su número,
  * la Localidad a la que pertenece y todas las Direcciones que tengan ese código postal.
  */

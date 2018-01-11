@@ -12,13 +12,13 @@ public class viewAgenda {
 
     public viewAgenda() {
         String []arrayOpcionesEditar = {"Agregar tarea","Editar Tarea","Salir"};
-        menuEditar = new Menu("Editar",arrayOpcionesEditar);
-        ItemMenu imEditar = new ItemMenu("Editar",menuEditar,0);
-        ItemMenu imVer = new ItemMenu("Ver tareas",1);
-        ItemMenu imSalir = new ItemMenu("Salir",2);
+        menuEditar = new Menu("Editar",arrayOpcionesEditar,new CodeAgenda());
+        ItemMenu imEditar = new ItemMenu("Editar",menuEditar,0,new CodeAgenda());
+        ItemMenu imVer = new ItemMenu("Ver tareas",1,new CodeAgenda());
+        ItemMenu imSalir = new ItemMenu("Salir",2,new CodeAgenda());
         opcionesPrincipales.add(imEditar);
         opcionesPrincipales.add(imVer);
         opcionesPrincipales.add(imSalir);
-        this.menuPrincipal = new Menu("Menú Principal",opcionesPrincipales);
+        this.menuPrincipal = new Menu("Menú Principal",opcionesPrincipales,new CodeAgenda());
     }
 }

@@ -6,15 +6,15 @@ import adaits.cursoJava.mvc.menu.Menu;
 import java.util.ArrayList;
 
 public class MenuColegio extends Menu{
-    public MenuColegio(String titulo, String[] labels) {
-        super(titulo, labels);
+    public MenuColegio(String titulo, String[] labels,CodeColegio listener) {
+        super(titulo, labels,listener);
     }
 
-    public MenuColegio(String label) {
-        super(label);
+    public MenuColegio(String label,CodeColegio listener) {
+        super(label,listener);
     }
 
-    public MenuColegio(String label, ArrayList<ItemMenu> opciones) {
-        super(label, opciones);
+    public MenuColegio(String label, ArrayList<ItemMenu> opciones,CodeColegio listener) {
+        super(label, opciones,listener);
     }
 }

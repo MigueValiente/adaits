@@ -1,4 +1,6 @@
 package adaits.cursoJava.colegio.view;
+import adaits.cursoJava.colegio.Colegio;
+import adaits.cursoJava.colegio.Titulacion;
 import adaits.cursoJava.mvc.menu.Codigo;
 import adaits.cursoJava.mvc.menu.EventSelectOption;
 import adaits.cursoJava.mvc.menu.ItemMenu;
@@ -15,89 +17,112 @@ public class CodeColegio extends Codigo {
 
     public static final int CREAR_TITULACION = 21;
     public static final int ELIMINAR_TITULACION = 22;
+    public static final int LISTAR_TITULACION = 23;
+
+    Colegio colegio;
 
 
+    public CodeColegio(){
+
+    }
+    public CodeColegio(Colegio colegio){
+        this.colegio = colegio;
+    }
     public CodeColegio(int option, ItemMenu item) {
         super(option, item);
+        item.addSelectOptionListener(this);
     }
 
     public CodeColegio(ItemMenu item) {
         super(item);
+        item.addSelectOptionListener(this);
     }
 
     @Override
     public void onSelectOption(EventSelectOption e) {
         switch (e.getOption()){
             case GESTION_DE_PERSONAL:
-                op1Action();
+                ActionGestionDePersonal();
                 break;
             case GESTION_EDUCATIVA:
-                op2Action();
+                ActionGestionEducativa();
                 break;
             case GESTION_DE_ADMINISTRACION:
-                op3Action();
+                ActionGestionDeAdministracion();
                 break;
             case SALIR:
-                op4Action();
+                ActionSalir();
                 break;
             case GESTION_DE_EMPLEADOS:
-                op5Action();
+                ActionGestionDeEmpleados();
                 break;
             case GESTION_DE_ALUMNOS:
-                op6Action();
+                ActionGestionDeAlumnos();
                 break;
             case VOLVER:
-                op7Action();
+                ActionVolver();
                 break;
             case CREAR_TITULACION:
-                op8Action();
+                ActionCrearTitulacion();
                 break;
             case ELIMINAR_TITULACION:
-                op9Action();
+                ActionEliminarTitulacion();
+                break;
+            case LISTAR_TITULACION:
+                ActionListarTitulaciones();
                 break;
             default:
-                opDefaultAction();
+                ActionDeafault();
         }
 
     }
-    private void op1Action(){
+
+
+
+    private void ActionGestionDePersonal(){
         getItem().getSubMenu().exec();
     }
-    private void op2Action(){
+    private void ActionGestionEducativa(){
         getItem().getSubMenu().exec();
     }
 
-    private void op3Action(){
+    private void ActionGestionDeAdministracion(){
         System.out.println(getItem().getLabel());
     }
 
-    private void op4Action(){
+    private void ActionSalir(){
         System.exit(0);
     }
 
 
-    private void op5Action(){
+    private void ActionGestionDeEmpleados(){
       System.out.println(getItem().getLabel());
     }
 
-    private void op6Action(){
+    private void ActionGestionDeAlumnos(){
         System.out.println(getItem().getLabel());
     }
 
-    private void op7Action(){
+    private void ActionVolver(){
         goUp();
     }
 
-    private void op8Action(){
-        System.out.println(getItem().getLabel());
-    }
-    private void op9Action(){
-        System.out.println(getItem().getLabel());
+    private void ActionCrearTitulacion(){
+        Titulacion t = new Titulacion(new LecturaPorConsola().getString("Nombre de la nueva Titulación"));
+        colegio.addTitulacion(t);
     }
 
-    private void opDefaultAction(){
+    private void ActionEliminarTitulacion(){
+        System.out.println(getItem().getLabel());
+    }
+    private void ActionListarTitulaciones(){
+        System.out.println(new Print().list(colegio.getTitulaciones()));
+    }
+
+    private void ActionDeafault(){
         System.out.println("¡¡¡ERROR!!! Debe introducir una opción válida");
     }
+
     private void goUp(){
         getItem().getParent().getPadre().exec();
     }

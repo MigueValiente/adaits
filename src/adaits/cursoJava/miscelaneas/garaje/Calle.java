@@ -19,16 +19,16 @@ public class Calle {
      * tiene la Calle
      * @param p Planta a la que pertenece la Calle
      * @param nCalle Número de Calle
-     * @param nPlazas Plazas que tiene la Calle
      */
-    public Calle(Planta p, int nCalle, int nPlazas){
+    public Calle(Planta p, int nCalle){
         planta = p;
         numero = nCalle;
+        int nPlazas = p.getGaraje().getPLAZAS();
         plazas = new Plaza[nPlazas];
 
 
         for (int i = 0; i < nPlazas; i++) {
-            plazas[i] = new Plaza(planta,this,nPlazas * (numero-1) + i);
+            plazas[i] = new Plaza(this,nPlazas * (numero-1) + i);
         }
     }
 
@@ -36,6 +36,14 @@ public class Calle {
         return numero;
     }
 
+    /**
+     * Getter de planta
+     *
+     * @return planta
+     */
+    public Planta getPlanta() {
+        return planta;
+    }
 
     /**
      * Obtiene una Plaza determinada por su número de Plaza en la Calle

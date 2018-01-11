@@ -16,14 +16,7 @@ public enum TipoCalle {
     }
 
     public String getTipoShort() {
-        switch (this){
-            case AVENIDA: return "Avenida";
-            case CALLE: return "Calle";
-            case PLAZA: return "Plaza";
-            case RONDA: return "Ronda";
-            case CARRETERA: return "Carretera";
-            default: return "Calle";
-        }
+        return tipoShort;
     }
     private Boolean isTipo(String tipoCalle) {
         return tipoCalle.toUpperCase().equals(this.tipo.toUpperCase());
@@ -41,14 +34,7 @@ public enum TipoCalle {
 
     @Override
     public String toString() {
-        switch (this){
-            case AVENIDA: return "Avenida";
-            case CALLE: return "Calle";
-            case PLAZA: return "Plaza";
-            case RONDA: return "Ronda";
-            case CARRETERA: return "Carretera";
-            default: return "Calle";
-        }
+        return tipo;
     }
 
 }
