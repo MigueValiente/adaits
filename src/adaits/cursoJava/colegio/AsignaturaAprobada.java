@@ -1,8 +1,8 @@
 package adaits.cursoJava.colegio;
 
-public class MatriculaAprobada extends MatriculaAsignatura {
+public class MatriculaAprobada extends Matricula {
     Integer nota;
-    public MatriculaAprobada(MatriculaAsignatura m) {
+    public MatriculaAprobada(Matricula m) {
         super(m);
     }
 
