@@ -1,0 +1,9 @@
+
+  @startuml
+
+    Clase1 <|-- Clase2
+    Clase1 <|-- Clase3
+    Clase3 *-- Clase5
+    Clase5 o-- Clase1
+
+  @enduml
