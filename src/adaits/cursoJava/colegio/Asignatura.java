@@ -11,15 +11,13 @@ public class Asignatura {
     private int tipo;
     private int horas;
     private ArrayList<Curso> cursos;
-    private ArrayList<Alumno> alumnosMatriculados;
-    private ArrayList<Alumno> antiguosAlumnos;
+    private ArrayList<Matricula> alumnosMatriculados;
 
     public Asignatura(String nombre, int tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
-        cursos = new ArrayList();
+        cursos = new ArrayList<>();
         alumnosMatriculados = new ArrayList<>();
-        antiguosAlumnos = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -46,20 +44,12 @@ public class Asignatura {
         this.cursos.add(curso);
     }
 
-    public ArrayList<Alumno> getAlumnosMatriculados() {
+    public ArrayList<Matricula> getAlumnosMatriculados() {
         return alumnosMatriculados;
     }
 
-    public void setAlumnoMatriculado(Alumno alumno) {
-        this.alumnosMatriculados.add(alumno);
-    }
-
-    public ArrayList<Alumno> getAntiguosAlumnos() {
-        return antiguosAlumnos;
-    }
-
-    public void setAntiguoAlumno(Alumno alumno) {
-        this.antiguosAlumnos.add(alumno);
+    public void setAlumnoMatriculado(Matricula matricula) {
+        this.alumnosMatriculados.add(matricula);
     }
 
     public int getTipo() {

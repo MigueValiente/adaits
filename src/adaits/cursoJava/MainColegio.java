@@ -1,9 +1,7 @@
 package adaits.cursoJava;
 
-import adaits.cursoJava.colegio.Asignatura;
-import adaits.cursoJava.colegio.Colegio;
-import adaits.cursoJava.colegio.Curso;
-import adaits.cursoJava.colegio.Titulacion;
+import adaits.cursoJava.Persona.Dni;
+import adaits.cursoJava.colegio.*;
 import adaits.cursoJava.colegio.view.CodeColegio;
 import adaits.cursoJava.colegio.view.LecturaPorConsola;
 import adaits.cursoJava.colegio.view.MenuColegio;
@@ -53,7 +51,7 @@ public class MainColegio {
         Asignatura seea = new Asignatura("Sistemas eléctricos/electrónicos de las aeronaves",Asignatura.TRONCAL);
 
 
-        tsmaAv1.addAsignatura(temb);
+        tsmaAv1.addAsignatura(teb);
         tsmaAv1.addAsignatura(ca);
         tsmaAv1.addAsignatura(cna);
         tsmaAv1.addAsignatura(fct);
@@ -79,7 +77,7 @@ public class MainColegio {
         tsmaAe1.addAsignatura(lom);
         tsmaAe1.addAsignatura(rat);
         tsmaAe1.addAsignatura(sma);
-        tsmaAe1.addAsignatura(teb);
+        tsmaAe1.addAsignatura(temb);
 
 //        Print pr = new Print();
 //        Titulacion daw = new Titulacion(input.getString("Introduzca una Titulación: "));
@@ -91,12 +89,45 @@ public class MainColegio {
 //        System.out.println(pr.list(colegio.getTitulaciones().get(0)));
 
 
+        // Al crear el alumno se crea automáticamente el expediente
+        Alumno a1 = new Alumno(new Dni("12345678"),"Perico","García","Martínez",tsmaAe);
+        Alumno a2 = new Alumno(new Dni("98653215"),"PP","GG","PT",tsmaAv);
+
+        Matricula m1 = new Matricula(a1,2018);
+        Matricula m2 = new Matricula(a2,2018);
+
+        m1.matricularAsignatura(seea);
+        m1.matricularAsignatura(teb);
+        m1.matricularAsignatura(rat);
+
+        m2.matricularAsignatura(teb);
+        m2.matricularAsignatura(sma);
+        m2.matricularAsignatura(rat);
+
+        a1.getExpediente().listarAsignaturasMatriculadas(2018);
+
+        a1.aprobarAsignatura(seea,7,2018);
+
+        a1.getExpediente().listarAsignaturasMatriculadas(2018);
+        a1.getExpediente().listarAsignaturasAprobadas();
+        a2.getExpediente().listarAsignaturasMatriculadas(2018);
+        a2.getExpediente().listarAsignaturasAprobadas();
+
+
         MenuColegio menuPrincipal = new MenuColegio("Colegio ADA-ITS",new CodeColegio(colegio));
 
 
-        ItemMenu gestionEmpleados = new ItemMenu("Gestión de Empleados", CodeColegio.GESTION_DE_EMPLEADOS, new CodeColegio(colegio));
-        ItemMenu gestionAlumnos = new ItemMenu("Gestión de Alumnos",CodeColegio.GESTION_DE_ALUMNOS, new CodeColegio(colegio));
+        ItemMenu abrirMatricula = new ItemMenu("Abrir nueva Matrícula", CodeColegio.ABRIR_MATRICULA, new CodeColegio(colegio));
+        ItemMenu incluirAsignatura = new ItemMenu("Añadir Asignatura",CodeColegio.INCLUIR_ASIGNATURA, new CodeColegio(colegio));
         ItemMenu volver = new ItemMenu("Volver",CodeColegio.VOLVER, new CodeColegio(colegio));
+
+        Menu menuAlumnos = new MenuColegio("Gestión de Alumnos",new CodeColegio(colegio));
+        menuAlumnos.add(abrirMatricula);
+        menuAlumnos.add(incluirAsignatura);
+        menuAlumnos.add(volver);
+
+        ItemMenu gestionEmpleados = new ItemMenu("Gestión de Empleados", CodeColegio.GESTION_DE_EMPLEADOS, new CodeColegio(colegio));
+        ItemMenu gestionAlumnos = new ItemMenu("Gestión de Alumnos",menuAlumnos,CodeColegio.GESTION_DE_ALUMNOS, new CodeColegio(colegio));
 
         Menu menuPersonal = new MenuColegio("Gestión de Personal",new CodeColegio(colegio));
         menuPersonal.add(gestionEmpleados);

@@ -51,15 +51,24 @@ public class Persona {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        //Reflexivo
+        if ( this == obj ) return true;
 
-        final Persona other = (Persona)obj;
-        if (!name.equals(other.name)) return false;
-        if (!apellido1.equals(other.apellido1)) return false;
-        if (!apellido2.equals(other.apellido2)) return false;
-        return dni.equals(other.dni);
+        //No nulo
+        if ( obj == null ) return false;
+
+        //Simetrico
+        //La máquina virtual mantiene una única instancia de cada clase, por lo que esta comparación es correcta
+        //Usar instanceof no garantiza la simetría porque es true para una clase y sus hijos
+        if ( this.getClass() != obj.getClass() ) return false;
+
+        // una vez que sabemos que son del mismo tipo hacemos cast para que el compilador lo sepa también
+        if ( this.getDni().equals(this.getClass().cast(obj).getDni()))
+            return true;
+
+        if ( this.getDni() != null )
+            return this.getDni().equals( this.getClass().cast(obj).getDni());
+        return false;
     }
 
     @Override

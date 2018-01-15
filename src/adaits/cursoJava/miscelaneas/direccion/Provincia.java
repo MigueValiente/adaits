@@ -1,5 +1,7 @@
 package adaits.cursoJava.miscelaneas.direccion;
 
+import java.util.ArrayList;
+
 /**
  * La Clase Provincia Modela una Provincia con un código, 41 para Sevilla, el nombre de la provincia y un Array de
  * Localidades que hay dentro de la Provincia
@@ -9,7 +11,8 @@ package adaits.cursoJava.miscelaneas.direccion;
 public class Provincia {
     private final int codigo;
     private final String nombreProvincia;
-    private Localidad [] localidades;
+//    private Localidad [] localidades;
+    private ArrayList<Localidad> localidades = new ArrayList<>();
 
     /**
      * Constructor que recibe el código y el Nombre de la Provincia
@@ -35,16 +38,17 @@ public class Provincia {
      * @param localidad Localidad a agregar
      */
     public void add(Localidad localidad){
-        if (localidades == null){
-            localidades = new Localidad[1];
-            localidades[0] = localidad;
-        }
-        else {
-            Localidad [] localidades2 = new Localidad[localidades.length + 1];
-            System.arraycopy(localidades,0,localidades2,0,localidades.length);
-            localidades2[localidades2.length - 1] = localidad;
-            localidades = localidades2;
-        }
+//        if (localidades == null){
+//            localidades = new Localidad[1];
+//            localidades[0] = localidad;
+//        }
+//        else {
+//            Localidad [] localidades2 = new Localidad[localidades.length + 1];
+//            System.arraycopy(localidades,0,localidades2,0,localidades.length);
+//            localidades2[localidades2.length - 1] = localidad;
+//            localidades = localidades2;
+//        }
+        localidades.add(localidad);
     }
 
     /**

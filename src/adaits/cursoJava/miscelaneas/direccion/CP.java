@@ -1,5 +1,7 @@
 package adaits.cursoJava.miscelaneas.direccion;
 
+import java.util.ArrayList;
+
 /**
  * La clase CP modela un Código Postal.
  * El código (numero) es un entero de tres cifras que junto a las dos cifras del código de la Provincia nos proporciona
@@ -10,7 +12,8 @@ package adaits.cursoJava.miscelaneas.direccion;
 public class CP {
     private final int numero;
     private final Localidad localidad;
-    private Direccion[] direcciones;
+//    private Direccion[] direcciones;
+    private ArrayList<Direccion> direcciones = new ArrayList<>();
 
     public CP(int numero, Localidad localidad) {
         this.numero = numero;
@@ -28,16 +31,17 @@ public class CP {
      * @param d direccion
      */
     public void add(Direccion d){
-        if (direcciones == null){
-            direcciones = new Direccion[1];
-            direcciones[0] = d;
-        }
-        else {
-            Direccion [] direcciones2 = new Direccion[direcciones.length + 1];
-            System.arraycopy(direcciones,0,direcciones2,0,direcciones.length);
-            direcciones2[direcciones2.length - 1] = d;
-            direcciones = direcciones2;
-        }
+//        if (direcciones == null){
+//            direcciones = new Direccion[1];
+//            direcciones[0] = d;
+//        }
+//        else {
+//            Direccion [] direcciones2 = new Direccion[direcciones.length + 1];
+//            System.arraycopy(direcciones,0,direcciones2,0,direcciones.length);
+//            direcciones2[direcciones2.length - 1] = d;
+//            direcciones = direcciones2;
+//        }
+        direcciones.add(d);
     }
 
     /**

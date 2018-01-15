@@ -6,11 +6,13 @@ public class Colegio {
     private String nombre;
     private ArrayList<Empleado> empleados;
     private ArrayList<Titulacion> titulaciones;
+    private ArrayList<Alumno> alumnos;
 
     public Colegio(String nombre) {
         this.nombre = nombre;
         titulaciones = new ArrayList<>();
         empleados = new ArrayList<>();
+        alumnos = new ArrayList<>();
     }
 
     public void addTitulacion (Titulacion titulacion){
@@ -28,4 +30,13 @@ public class Colegio {
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
     }
+
+    public void addAlumno (Alumno alumno){
+        alumnos.add(alumno);
+    }
+
+    public void addEmpleado (Empleado empleado){
+        empleados.add(empleado);
+    }
+
 }

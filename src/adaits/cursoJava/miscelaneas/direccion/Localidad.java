@@ -1,5 +1,7 @@
 package adaits.cursoJava.miscelaneas.direccion;
 
+import java.util.ArrayList;
+
 /**
  * La Clase Localidad modela las poblaciones de una Provincia
  * De la Localidad se necesita conocer su nombre, la Provincia a la que pertenece y la relación de códigos postales
@@ -10,7 +12,8 @@ package adaits.cursoJava.miscelaneas.direccion;
 public class Localidad {
     private final String nombreLoc;
     private final Provincia provincia;
-    private CP[] cps;
+//    private CP[] cps;
+    private ArrayList<CP> cps = new ArrayList<>();
 
     /**
      * Constructor que recibe el nombre de la Localidad y la Provincia a la que pertenece. Permite agregar la Localidad
@@ -35,16 +38,17 @@ public class Localidad {
       * @param cp Código Postal
      */
     public void add(CP cp){
-        if (cps == null){
-            cps = new CP[1];
-            cps[0] = cp;
-        }
-        else {
-            CP [] cps2 = new CP[cps.length + 1];
-            System.arraycopy(cps,0,cps2,0,cps.length);
-            cps2[cps2.length - 1] = cp;
-            cps = cps2;
-        }
+//        if (cps == null){
+//            cps = new CP[1];
+//            cps[0] = cp;
+//        }
+//        else {
+//            CP [] cps2 = new CP[cps.length + 1];
+//            System.arraycopy(cps,0,cps2,0,cps.length);
+//            cps2[cps2.length - 1] = cp;
+//            cps = cps2;
+//        }
+        cps.add(cp);
     }
 
     /**

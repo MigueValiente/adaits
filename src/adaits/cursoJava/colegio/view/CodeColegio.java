@@ -15,6 +15,9 @@ public class CodeColegio extends Codigo {
     public static final int GESTION_DE_ALUMNOS = 12;
     public static final int VOLVER = 13;
 
+    public static final int ABRIR_MATRICULA = 121;
+    public static final int INCLUIR_ASIGNATURA= 122;
+
     public static final int CREAR_TITULACION = 21;
     public static final int ELIMINAR_TITULACION = 22;
     public static final int LISTAR_TITULACION = 23;
@@ -71,6 +74,12 @@ public class CodeColegio extends Codigo {
             case LISTAR_TITULACION:
                 ActionListarTitulaciones();
                 break;
+            case ABRIR_MATRICULA:
+                ActionAbrirMatricula();
+                break;
+            case INCLUIR_ASIGNATURA:
+                ActionIncluirAsignatura();
+                break;
             default:
                 ActionDeafault();
         }
@@ -94,13 +103,12 @@ public class CodeColegio extends Codigo {
         System.exit(0);
     }
 
-
     private void ActionGestionDeEmpleados(){
       System.out.println(getItem().getLabel());
     }
 
     private void ActionGestionDeAlumnos(){
-        System.out.println(getItem().getLabel());
+        getItem().getSubMenu().exec();
     }
 
     private void ActionVolver(){
@@ -115,6 +123,15 @@ public class CodeColegio extends Codigo {
     private void ActionEliminarTitulacion(){
         System.out.println(getItem().getLabel());
     }
+
+    private void ActionAbrirMatricula(){
+        System.out.println(getItem().getLabel());
+    }
+
+    private void ActionIncluirAsignatura(){
+        System.out.println(getItem().getLabel());
+    }
+
     private void ActionListarTitulaciones(){
         System.out.println(new Print().list(colegio.getTitulaciones()));
     }

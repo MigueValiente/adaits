@@ -22,6 +22,16 @@ public class Titulacion{
         cursos.add(curso);
     }
 
+    public boolean tieneEstaAsignatura(Asignatura asignatura){
+        for (Curso c: cursos){
+            for (Asignatura a:c.getAsignaturas()){
+                if (asignatura.equals(a))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Curso> getCursos() {
         return cursos;
     }
